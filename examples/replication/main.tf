@@ -49,7 +49,7 @@ module "mysql" {
   emphemeral_storage = true
   init_sql_url       = "https://raw.githubusercontent.com/seal-io/terraform-provider-byteset/main/byteset/testdata/mysql-lg.sql"
 
-  seal_metadata_service_name = "mysql"
+  walrus_metadata_service_name = "mysql"
 }
 
 output "mysql_db_endpoint" {
@@ -105,7 +105,7 @@ module "mariadb" {
   emphemeral_storage = true
   init_sql_url       = "https://raw.githubusercontent.com/seal-io/terraform-provider-byteset/main/byteset/testdata/mysql.sql"
 
-  seal_metadata_service_name = "mariadb"
+  walrus_metadata_service_name = "mariadb"
 }
 
 output "mariadb_db_endpoint" {
@@ -162,7 +162,7 @@ module "postgres" {
   emphemeral_storage = true
   init_sql_url       = "https://raw.githubusercontent.com/seal-io/terraform-provider-byteset/main/byteset/testdata/postgres-lg.sql"
 
-  seal_metadata_service_name = "postgres"
+  walrus_metadata_service_name = "postgres"
 }
 
 output "postgres_db_endpoint" {
