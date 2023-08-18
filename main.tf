@@ -89,7 +89,7 @@ locals {
 #
 
 locals {
-  seal_metadata_service_name     = coalesce(var.seal_metadata_service_name, "rds")
+  walrus_metadata_service_name     = coalesce(var.walrus_metadata_service_name, "rds")
 }
 
 locals {
@@ -97,8 +97,8 @@ locals {
 
   architecture = var.architecture
 
-  namespace  = coalesce(var.seal_metadata_namespace_name, "example")
-  name       = local.seal_metadata_service_name
+  namespace  = coalesce(var.walrus_metadata_namespace_name, "example")
+  name       = local.walrus_metadata_service_name
   chart      = lookup(local.engineInfo, "chart")
   repository = lookup(local.engineInfo, "repository")
   tag        = lookup(local.engineInfo, "tag")

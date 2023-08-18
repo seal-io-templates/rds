@@ -39,29 +39,28 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_engine"></a> [engine](#input\_engine) | Select the RDS engine, support serval kinds of 'MySQL', 'MariaDB' and 'PostgreSQL'. | `string` | n/a | yes |
 | <a name="input_architecture"></a> [architecture](#input\_architecture) | Select the RDS architecture, support from 'Standalone' and 'Replication'. | `string` | n/a | yes |
-| <a name="input_password"></a> [password](#input\_password) | Specify the root password to initialize after launching. | `string` | n/a | yes |
-| <a name="input_username"></a> [username](#input\_username) | Specify the root username to initialize after launching. | `string` | `"rdsusr"` | no |
 | <a name="input_database"></a> [database](#input\_database) | Specify the database name to initialize after launching. | `string` | `"rdsdb"` | no |
 | <a name="input_emphemeral_storage"></a> [emphemeral\_storage](#input\_emphemeral\_storage) | Specify to use emphemeral storage, which is nice for testing. | `bool` | `false` | no |
+| <a name="input_engine"></a> [engine](#input\_engine) | Select the RDS engine, support serval kinds of 'MySQL', 'MariaDB' and 'PostgreSQL'. | `string` | n/a | yes |
 | <a name="input_init_sql_url"></a> [init\_sql\_url](#input\_init\_sql\_url) | Specify the init SQL download URL to initialize after launching. | `string` | `""` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | Specify the Kubernetes namespace to deploy, generate automatically if empty. | `string` | `""` | no |
-| <a name="input_seal_metadata_project_name"></a> [seal\_metadata\_project\_name](#input\_seal\_metadata\_project\_name) | Seal metadata project name. | `string` | `""` | no |
-| <a name="input_seal_metadata_environment_name"></a> [seal\_metadata\_environment\_name](#input\_seal\_metadata\_environment\_name) | Seal metadata environment name. | `string` | `""` | no |
-| <a name="input_seal_metadata_service_name"></a> [seal\_metadata\_service\_name](#input\_seal\_metadata\_service\_name) | Seal metadata service name. | `string` | `""` | no |
+| <a name="input_password"></a> [password](#input\_password) | Specify the root password to initialize after launching. | `string` | n/a | yes |
+| <a name="input_username"></a> [username](#input\_username) | Specify the root username to initialize after launching. | `string` | `"rdsusr"` | no |
+| <a name="input_walrus_metadata_namespace_name"></a> [walrus\_metadata\_namespace\_name](#input\_walrus\_metadata\_namespace\_name) | Walrus metadata namespace name. | `string` | `""` | no |
+| <a name="input_walrus_metadata_service_name"></a> [walrus\_metadata\_service\_name](#input\_walrus\_metadata\_service\_name) | Walrus metadata service name. | `string` | `""` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_db_endpoint"></a> [db\_endpoint](#output\_db\_endpoint) | n/a |
-| <a name="output_db_host"></a> [db\_host](#output\_db\_host) | n/a |
-| <a name="output_db_endpoint_replica"></a> [db\_endpoint\_replica](#output\_db\_endpoint\_replica) | n/a |
-| <a name="output_db_host_replica"></a> [db\_host\_replica](#output\_db\_host\_replica) | n/a |
 | <a name="output_db_driver"></a> [db\_driver](#output\_db\_driver) | n/a |
-| <a name="output_db_port"></a> [db\_port](#output\_db\_port) | n/a |
+| <a name="output_db_endpoint"></a> [db\_endpoint](#output\_db\_endpoint) | n/a |
+| <a name="output_db_endpoint_replica"></a> [db\_endpoint\_replica](#output\_db\_endpoint\_replica) | n/a |
+| <a name="output_db_host"></a> [db\_host](#output\_db\_host) | n/a |
+| <a name="output_db_host_replica"></a> [db\_host\_replica](#output\_db\_host\_replica) | n/a |
 | <a name="output_db_name"></a> [db\_name](#output\_db\_name) | n/a |
-| <a name="output_db_username"></a> [db\_username](#output\_db\_username) | n/a |
 | <a name="output_db_password"></a> [db\_password](#output\_db\_password) | n/a |
+| <a name="output_db_port"></a> [db\_port](#output\_db\_port) | n/a |
+| <a name="output_db_username"></a> [db\_username](#output\_db\_username) | n/a |
 <!-- END_TF_DOCS -->
