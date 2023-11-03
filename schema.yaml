@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template rds
+components:
+  schemas:
+    variables:
+      type: object
+      required:
+      - architecture
+      - engine
+      - password
+      properties:
+        engine:
+          title: Engine
+          type: string
+          description: Select the RDS engine, support serval kinds of 'MySQL', 'MariaDB'
+            and 'PostgreSQL'.
+          enum:
+          - MySQL-5.7
+          - MySQL-8.0
+          - MariaDB-10.3
+          - MariaDB-10.4
+          - MariaDB-10.5
+          - MariaDB-10.6
+          - PostgreSQL-13
+          - PostgreSQL-14
+          - PostgreSQL-15
+          x-walrus-ui:
+            group: Basic
+        architecture:
+          title: Architecture
+          type: string
+          description: Select the RDS architecture, support from 'Standalone' and
+            'Replication'.
+          enum:
+          - Standalone
+          - Replication
+          x-walrus-ui:
+            group: Basic
+        password:
+          title: Password
+          type: string
+          description: Specify the root password to initialize after launching.
+          writeOnly: true
+          format: password
+          x-walrus-ui:
+            group: Basic
+        username:
+          title: Username
+          type: string
+          description: Specify the root username to initialize after launching.
+          default: rdsusr
+          x-walrus-ui:
+            group: Basic
+        database:
+          title: Database
+          type: string
+          description: Specify the database name to initialize after launching.
+          default: rdsdb
+          x-walrus-ui:
+            group: Basic
+        emphemeral_storage:
+          title: Ephemeral Storage
+          type: boolean
+          description: Specify to use emphemeral storage, which is nice for testing.
+          default: false
+          x-walrus-ui:
+            group: Advanced
+        init_sql_url:
+          title: Init SQL URL
+          type: string
+          description: Specify the init SQL download URL to initialize after launching.
+          default: ''
+          x-walrus-ui:
+            group: Advanced
+        namespace:
+          title: Namespace
+          type: string
+          description: Specify the Kubernetes namespace to deploy, generate automatically
+            if empty.
+          default: ''
+          x-walrus-ui:
+            group: Advanced
+        walrus_metadata_namespace_name:
+          title: walrus_metadata_namespace_name
+          type: string
+          description: Walrus metadata namespace name.
+          default: ''
+          x-walrus-ui:
+            hidden: true
+        walrus_metadata_service_name:
+          title: walrus_metadata_service_name
+          type: string
+          description: Walrus metadata service name.
+          default: ''
+          x-walrus-ui:
+            hidden: true
+
+
