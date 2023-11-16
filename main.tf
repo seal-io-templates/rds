@@ -89,7 +89,8 @@ locals {
 #
 
 locals {
-  walrus_metadata_service_name     = coalesce(var.walrus_metadata_service_name, "rds")
+  name      = coalesce(try(var.walrus_metadata_service_name, null), try(var.context["resource"]["name"], null), "rds")
+  namespace = coalesce(try(var.walrus_metadata_namespace_name, null), try(var.context["environment"]["namespace"], null), "example")
 }
 
 locals {
@@ -97,8 +98,6 @@ locals {
 
   architecture = var.architecture
 
-  namespace  = coalesce(var.walrus_metadata_namespace_name, "example")
-  name       = local.walrus_metadata_service_name
   chart      = lookup(local.engineInfo, "chart")
   repository = lookup(local.engineInfo, "repository")
   tag        = lookup(local.engineInfo, "tag")
@@ -117,10 +116,10 @@ locals {
 #
 
 resource "helm_release" "rds" {
-  repository       = "https://charts.bitnami.com/bitnami"
-  chart            = local.chart
-  wait             = false
-  max_history      = 3
+  repository  = "https://charts.bitnami.com/bitnami"
+  chart       = local.chart
+  wait        = false
+  max_history = 3
 
   namespace = local.namespace
   name      = local.name

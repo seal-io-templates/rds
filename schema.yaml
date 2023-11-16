@@ -4,11 +4,11 @@ info:
 components:
   schemas:
     variables:
-      type: object
       required:
       - architecture
       - engine
       - password
+      type: object
       properties:
         engine:
           title: Engine
@@ -41,8 +41,8 @@ components:
           title: Password
           type: string
           description: Specify the root password to initialize after launching.
-          writeOnly: true
           format: password
+          writeOnly: true
           x-walrus-ui:
             group: Basic
         username:
@@ -70,7 +70,7 @@ components:
           title: Init SQL URL
           type: string
           description: Specify the init SQL download URL to initialize after launching.
-          default: ''
+          default: ""
           x-walrus-ui:
             group: Advanced
         namespace:
@@ -78,22 +78,31 @@ components:
           type: string
           description: Specify the Kubernetes namespace to deploy, generate automatically
             if empty.
-          default: ''
+          default: ""
           x-walrus-ui:
             group: Advanced
-        walrus_metadata_namespace_name:
-          title: walrus_metadata_namespace_name
-          type: string
-          description: Walrus metadata namespace name.
-          default: ''
-          x-walrus-ui:
-            hidden: true
-        walrus_metadata_service_name:
-          title: walrus_metadata_service_name
-          type: string
-          description: Walrus metadata service name.
-          default: ''
-          x-walrus-ui:
-            hidden: true
+        context:
+          title: Context
+          type: object
+          description: |
+            Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
 
-
+            Examples:
+            ```
+            context:
+              project:
+                name: string
+                id: string
+              environment:
+                name: string
+                id: string
+              resource:
+                name: string
+                id: string
+            ```
+          default: {}
+          additionalProperties:
+            type: object
+          x-walrus-ui:
+            group: Basic
+            hidden: true
